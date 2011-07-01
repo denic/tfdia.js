@@ -5,15 +5,43 @@
     <title>tfdia.js Example</title>
 </head>
 
-<body>
+<body onload="init()">
     <h1>TFDia Example:</h1>
-        <canvas width="100" height="100" id="dia" style="border: 1px solid black">
+    
+    <div id="container">
+        <canvas width="400" height="400" id="dia" style="border: 1px solid black">
             <p>Browsers that do not support the canvas element will show this text. Probably.</p>
-        </canvas>
+        </canvas><br>
+    </div>
     <script src="tfdia.js"></script>
     <script>
-        var tfd1 = new TFDia(document.getElementById('dia'));
-        tfd1.draw();
+        function init() {
+            var tfs = {};
+            
+            for (var i=0; i<50; i++) {
+                var n = "tfd" + i;
+                var container = document.getElementById('container');
+                var newCanvas = document.createElement('canvas');
+                newCanvas.setAttribute('id', n);
+                newCanvas.setAttribute('width', 80);
+                newCanvas.setAttribute('height', 80);
+                
+                container.appendChild(newCanvas);
+                
+            }
+            
+            for (var i=0; i<50; i++) {
+                var n = "tfd" + i;
+                tfs[n] = new TFDia(document.getElementById(n));
+                tfs[n].genTestData();
+                tfs[n].draw();
+            }
+            
+            
+            var tfd = new TFDia(document.getElementById('dia'));
+            tfd.genTestData();
+            tfd.draw();
+        }
     </script>
 </body>
 </html>
