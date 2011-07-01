@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>tfdia.js Example</title>
+</head>
+
+<body>
+    <h1>TFDia Example:</h1>
+        <canvas width="100" height="100" id="dia" style="border: 1px solid black">
+            <p>Browsers that do not support the canvas element will show this text. Probably.</p>
+        </canvas>
+    <script src="tfdia.js"></script>
+    <script>
+        var tfd1 = new TFDia(document.getElementById('dia'));
+        tfd1.draw();
+    </script>
+</body>
+</html>
